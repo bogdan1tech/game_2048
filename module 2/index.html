@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2048 игр</title>
+	 
+  <link href="style/style.css" rel="stylesheet" type="text/css">   
+  <script src="script/app.js"></script>
+
+</head>
+  
+  
+<body>
+  <div class="statistic">
+    <p>Счет:<span id="score"></span></p>
+    <p>Затраченное время:<span id="time"></span></p>
+    <form name=MyForm>   
+      <!--<input type=button value="Обнулить" onclick="ClearСlock()">-->  
+      <input name=stopwatch size=10 value="00:00:00.00">  
+      <!--<input type=button value="Запуск/Остановить" onclick="StartStop()">--> 
+     </form>
+  </div>
+  <div id="win_game">
+    <p>
+        <!-- Маленькое окно по центру-->
+     Вы выиграли!<br>
+     Ваш счет:<span id="finalScore"></span><br>  
+     <a class="button" id="elem" onclick=game.start()>Попробовать заново!</a>
+    </p> 
+   </div>
+  
+   <div class="buttons">
+ <input type="button" id="button_left" value="Сдвинуть влево">
+ <input type="button" id="button_right" value="Сдвинутьвправо">
+ <input type="button" id="button_up" value="Сдвинуть вверх">
+ <input type="button"  onclick="clockStart()" id="button_down" value="Сдвинуть вниз">
+   </div>
+   
+   <div id="gridPanel">
+     
+         <! - Фоновая сетка ->
+     
+         <! - Строка 1 ->
+     <div id="g00" class="grid"></div>
+     <div id="g01" class="grid"></div>
+     <div id="g02" class="grid"></div>
+     <div id="g03" class="grid"></div>
+    <div id="g04" class="grid"></div>
+     
+         <! - Строка 2 ->
+     <div id="g10" class="grid"></div>
+     <div id="g11" class="grid"></div>
+     <div id="g12" class="grid"></div>
+     <div id="g13" class="grid"></div>
+    <div id="g14" class="grid"></div>
+     
+         <! - Строка 3 ->
+     <div id="g20" class="grid"></div>
+     <div id="g21" class="grid"></div>
+     <div id="g22" class="grid"></div>
+     <div id="g23" class="grid"></div>
+    <div id="g24" class="grid"></div>
+     
+         <! - Строка 4 ->
+     <div id="g30" class="grid"></div>
+     <div id="g31" class="grid"></div>
+     <div id="g32" class="grid"></div>
+     <div id="g33" class="grid"></div>
+    <div id="g34" class="grid"></div>
+
+  <!-- Строка 5 -->
+     <div id="g40" class="grid"></div>
+     <div id="g41" class="grid"></div>
+     <div id="g42" class="grid"></div>
+     <div id="g43" class="grid"></div>
+    <div id="g44" class="grid"></div>
+     
+         <! - Сетка переднего плана ->
+     
+         <! - Строка 1 ->
+     <div id="c00" class="cell"></div>
+     <div id="c01" class="cell"></div>
+     <div id="c02" class="cell"></div>
+     <div id="c03" class="cell"></div>
+    <div id="c04" class="cell"></div>
+     
+         <! - Строка 2 ->
+     <div id="c10" class="cell"></div>
+     <div id="c11" class="cell"></div>
+     <div id="c12" class="cell"></div>
+     <div id="c13" class="cell"></div>
+     <div id="c14" class="cell"></div>
+     
+         <! - Строка 3 ->
+     <div id="c20" class="cell"></div>
+     <div id="c21" class="cell"></div>
+     <div id="c22" class="cell"></div>
+     <div id="c23" class="cell"></div>
+     <div id="c24" class="cell"></div>
+     
+         <! - Строка 4 ->
+     <div id="c30" class="cell"></div>
+     <div id="c31" class="cell"></div>
+     <div id="c32" class="cell"></div>
+     <div id="c33" class="cell"></div>
+     <div id="c34" class="cell"></div>
+     
+  <!-- Строка 5 -->
+    <div id="c40" class="cell"></div>
+     <div id="c41" class="cell"></div>
+     <div id="c42" class="cell"></div>
+     <div id="c43" class="cell"></div>
+     <div id="c44" class="cell"></div>
+
+
+     </div>
+   
+   <div id="gameOver">
+         <!-- Контейнер, содержащий как передний, так и задний план -->
+     <div>
+             <!-- Полупрозрачный серый фон -->
+    </div>
+     <p>
+           <!-- Маленькое окно по центру-->
+        Игра окончена!<br>
+        Ваш счет:<span id="finalScore"></span><br>
+        <a class="button"  onclick=game.start()>Попробовать заново!</a>
+       </p> 
+    </div>
+    <!-- ТАЙМЕР -->
+  </body>  
+  
+<script>
+  button_right.onclick = function() {
+    startTimer();
+    game.moveRight();
+
+};
+button_left.onclick = function() {
+  startTimer();
+  game.moveLeft();
+  
+};
+button_up.onclick = function() {
+  startTimer();
+  game.moveUp();
+  
+};	
+button_down.onclick = function() {
+  startTimer();
+  game.moveDown();
+};
+</script> 
+  
+</html>
+
